@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+body { width: 100%;font-family: 'Space Grotesk', sans-serif; }
+.topline{ display:flex; align-items:center; justify-content:center; }
+.topline .logo{ height:24px; width:auto; image-rendering:-webkit-optimize-contrast; }
+.topline .times{ font-size:22px; font-weight:600; opacity:.85; }
+.topline .lib{ font-size:22px; font-weight:600; letter-spacing:.1px; }
+
+@media (max-width:768px){
+  .topline .logo{ height:20px; }
+  .topline .times, .topline .lib{ font-size:18px; }
+}
+
+
+.hero{ padding:10px 16px 0;line-height: 56px;}
+.hero h1{ margin:0; text-align:center; font-size:clamp(28px,4.5vw,56px); font-weight:400; letter-spacing:.2px;font-size: 42px; }
+.hero b{ font-weight:600;font-size: 42px; }
+
+
+.image-showcase {
+  display: flex;
+  justify-content: center;
+  padding-top: 65px;
+}
+
+
+
+.stats{
+  margin:0px auto 0; padding:0 16px;
+      padding-bottom: 40px;
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; max-width:1100px;
+
+}
+.stat{ padding:22px 10px; text-align:center; position:relative; }
+.stat:not(:last-child)::after{
+  content:""; position:absolute; top:16px; right:0; bottom:16px; width:1px; background:#eaeaea;
+}
+.stat .num{ font-size:clamp(28px,3.8vw,40px); font-weight:800; }
+.stat .label{ color:#6b7280; font-size:13px; margin-top:6px; }
+
+@media (max-width: 768px) {
+  .stats{
+    grid-template-columns: repeat(2, minmax(0,1fr)); 
+    gap: 16px 24px; 
+    padding-bottom: 32px;
+  }
+
+  .stat:not(:last-child)::after { display: none; }
+
+  .stat:nth-child(1)::after{
+    content:"";
+    position:absolute;
+    top:16px; bottom:16px; right:0;
+    width:1px; background:#eaeaea;
+    display:block;
+  }
+
+  .stat:nth-child(3){ grid-column: 1 / -1; }
+
+  .stat{ padding:18px 8px; }
+  .stat .num{ font-size:clamp(26px,6vw,36px); }
+  .stat .label{ font-size:12px; margin-top:4px; }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 8px 46px 30px;
+    line-height: 48px;
+  }
+.hero h1 { 
+  font-size: 28px; 
+  font-weight: 500;
+}
+.hero b { 
+  font-size: 28px; 
+  font-weight: 700;
+} 
+}
+@media (max-width: 768px) {
+  .topband {
+    height: 140px;
+    padding-bottom: 20px;
+  }
+
+  .topband .overlay {
+    top: 32px;
+    font-size: 16px;   
+    gap: 4px;       
+  }
+  .topband .overlay .logo{
+    height: 16px !important;     
+    top: 0 !important;           
+    position: static !important;  
+  }
+
+  .topband .times {
+    font-size: 20px !important; 
+  }
+
+  .topband .lib {
+    font-size: 20px !important;  
+    font-weight: 600;
+  }
+  .footer-band p{ max-width:1100px; margin:8px auto; text-align:center; font-size:14px; color:#0b0b0f;font-weight: 800;line-height:35px; }
+
+}
+
+
+.footer-band{
+  background-size:cover; background-position:center;
+
+  padding:16px; display:flex; justify-content:center; align-items:center;
+}
+.footer-band p{ max-width:1100px; margin:8px auto; text-align:center; font-size:14px; color:#0b0b0f;font-weight: 700;line-height:28px; }
+
+body{ margin:0; }
+
+.topband{
+  position:relative;
+  height:140px;            
+  background:linear-gradient(to bottom,#d6ff43 0%, #ffffff 100%);
+  display:flex; justify-content:center; align-items:flex-end;
+  padding-bottom:20px;
+
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+}
+
+.topband .overlay {
+  position: absolute;
+  top: 49px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;                
+  font-size: 22px;
+  font-weight: 600;
+  white-space: nowrap;     
+}
+
+.topband .logo {
+  height: 26px;
+  width: auto;
+}
+
+.topband .times {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.topband .lib {
+  font-weight: 500;
+  font-size: 22px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+
+.section.narrow{
+  width:100%; max-width:100%; margin:0; padding:0;
+}
+
+
+.section.narrow {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+
+.only-desktop { display: none; }
+.only-mobile { display: block; }
+
+@media (min-width: 769px) {
+  .only-desktop { display: block; }
+  .only-mobile { display: none; }
+}
+
+.thumb-fallback { display:flex; align-items:center; justify-content:center; }
+.thumb-fallback .play { font-size: 32px; opacity: .7; }
+
