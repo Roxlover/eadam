@@ -100,7 +100,7 @@ body { width: 100%;font-family: 'Space Grotesk', sans-serif; }
     font-size: 20px !important;  
     font-weight: 600;
   }
-  .footer-band p{ max-width:1100px; margin:8px auto; text-align:center; font-size:14px; color:#0b0b0f;font-weight: 800;line-height:35px; }
+  .footer-band p{ max-width:1100px; margin:8px auto; text-align:center; font-size:14px; color:#0b0b0f;font-weight: 800; line-height:23px; }
 
 }
 
