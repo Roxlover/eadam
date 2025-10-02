@@ -265,3 +265,25 @@
 .video-catalog .dot{ opacity:.5; }
 .video-catalog .pager{ display:flex; gap:12px; justify-content:center; align-items:center; margin-top:16px; }
 .video-catalog .pager button[disabled]{ opacity:.4; pointer-events:none; }
+
+.vpager{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  margin-top:16px;
+}
+.vpager-btn{
+  border:1px solid #111;
+  background:#fff;
+  padding:6px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.vpager-btn:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+.vpager-info{
+  font-weight:600;
+}
