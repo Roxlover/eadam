@@ -16,6 +16,21 @@ type Props = {
   categories: string[];
 };
 
+const LIVE_POOL = [3, 5, 6, 7, 8];
+function hashInt(input: number | string) {
+  const s = String(input);
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = (h << 5) - h + s.charCodeAt(i);
+    h |= 0;
+  }
+  return Math.abs(h);
+}
+function pickLiveCountById(id: number | string) {
+  const h = hashInt(id);
+  return LIVE_POOL[h % LIVE_POOL.length];
+}
+
 export default function VideoCatalog({ items, categories }: Props) {
   const [activeCat, setActiveCat] = useState("Tümü");
   const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
@@ -24,10 +39,9 @@ export default function VideoCatalog({ items, categories }: Props) {
   useEffect(() => {
     const setByWidth = () => {
       if (typeof window === "undefined") return;
-      const isMobile = window.matchMedia("(max-width: 768px)").matches;
-      setPageSize(isMobile ? 10 : 20);
+      setPageSize(window.matchMedia("(max-width: 768px)").matches ? 10 : 20);
     };
-    setByWidth();                        
+    setByWidth();
     window.addEventListener("resize", setByWidth);
     return () => window.removeEventListener("resize", setByWidth);
   }, []);
@@ -48,6 +62,12 @@ export default function VideoCatalog({ items, categories }: Props) {
     setPage(p);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const liveCountMap = useMemo(() => {
+    const m = new Map<number, number>();
+    items.forEach((it) => m.set(it.id, pickLiveCountById(it.id)));
+    return m;
+  }, [items]);
 
   return (
     <div className="vcatalog">
@@ -73,7 +93,7 @@ export default function VideoCatalog({ items, categories }: Props) {
             <article className="vcard">
               <div className="vinner">
                 <div className="vbadge">
-                  {it.liveNote ?? `Bu tasarım ${it.id} markada canlıda**`}
+                  {it.liveNote ?? `Bu tasarım ${liveCountMap.get(it.id)} markada canlıda**`}
                 </div>
 
                 <video src={it.videoSrc} muted playsInline preload="metadata" />
@@ -104,11 +124,7 @@ export default function VideoCatalog({ items, categories }: Props) {
           Önceki
         </button>
         <span className="vpager-info">{page} / {totalPages}</span>
-        <button
-          className="vpager-btn"
-          disabled={page === totalPages}
-          onClick={() => goPage(page + 1)}
-        >
+        <button className="vpager-btn" disabled={page === totalPages} onClick={() => goPage(page + 1)}>
           Sonraki
         </button>
       </div>
