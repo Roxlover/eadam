@@ -9,7 +9,7 @@ export default function TopbandImage() {
           style={{ height: 20, top: -1.5, position: "relative" }}
         />
         <span className="times">×</span>
-        <span className="lib">Tema Kütüphanesi</span>
+        <span className="lib">Anasayfa Tasarımı Kütüphanesi</span>
       </div>
     </div>
   );

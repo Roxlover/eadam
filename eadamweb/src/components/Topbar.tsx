@@ -4,7 +4,7 @@ export default function Topbar() {
     <div className="topline">
       <img className="logo" src={logoSrc} alt="e-adam" />
       <span className="times">×</span>
-      <span className="lib">Tema Kütüphanesi</span>
+      <span className="lib">Anasayfa Tasarımı Kütüphanesi</span>
     </div>
   );
 }

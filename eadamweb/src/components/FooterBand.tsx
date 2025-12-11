@@ -8,7 +8,7 @@ export default function FooterBand() {
     >
       <p>
         Bu önerilen tasarımlar yalnızca ana sayfa için örnek niteliğindedir. Header ve Footer
-        alanları mevcut temanızdan alınır, bu alanlar örneklerde farklı görünebilir.
+        alanları mevcut anasayfa tasarımlarımızdan alınır, bu alanlar örneklerde farklı görünebilir.
       </p>
     </section>
   );
