@@ -35,14 +35,15 @@ export default function VideoCarouselMobil({ items, className = "" }: Props) {
                 <video
                   ref={setVideoRef(idx)}
                   className="media"
-                  src={it.src}
                   poster={"poster" in it ? it.poster : undefined}
                   playsInline
                   muted
                   loop
                   preload="metadata"
                   controls={false}
-                />
+                >
+                  <source src={it.src} type="video/mp4" />
+                </video>
               )}
             </div>
           </div>

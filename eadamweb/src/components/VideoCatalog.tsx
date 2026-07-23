@@ -96,7 +96,9 @@ export default function VideoCatalog({ items, categories }: Props) {
                   {it.liveNote ?? `Bu tasarım ${liveCountMap.get(it.id)} markada canlıda**`}
                 </div>
 
-                <video src={it.videoSrc} muted playsInline preload="metadata" />
+                <video muted playsInline preload="metadata">
+                  <source src={it.videoSrc} type="video/mp4" />
+                </video>
 
                 <button
                   className="vplay-btn"
@@ -134,12 +136,13 @@ export default function VideoCatalog({ items, categories }: Props) {
           <div className="vmodal-box" onClick={(e) => e.stopPropagation()}>
             <button className="vmodal-close" onClick={() => setActiveVideo(null)}>✕</button>
             <video
-              src={activeVideo.videoSrc}
               controls
               autoPlay
               playsInline
               className="vmodal-video"
-            />
+            >
+              <source src={activeVideo.videoSrc} type="video/mp4" />
+            </video>
           </div>
         </div>
       )}
